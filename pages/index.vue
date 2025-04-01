@@ -1,7 +1,15 @@
 <template>
-  <div>
-    <h1 class="text-2xl text-green-700">hello there mother fucker</h1>
-  </div>
+  <h1>this is the home and main page!</h1>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import type { NavigationMenuItem } from "@nuxt/ui";
+
+const items = ref<NavigationMenuItem[]>([
+  {
+    label: "Guide",
+    icon: "i-prime-palette",
+    // to: "/getting-started",
+  },
+]);
+</script>
