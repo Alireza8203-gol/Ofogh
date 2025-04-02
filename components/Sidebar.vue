@@ -14,12 +14,14 @@
     </template>
 
     <template #footer>
-      <UButton
-        size="xl"
-        color="primary"
-        class="rounded-full"
-        trailing-icon="i-prime-moon"
-      />
+      <ClientOnly v-if="!colorMode?.forced">
+        <UButton
+          color="neutral"
+          variant="ghost"
+          @click="isDark = !isDark"
+          :icon="isDark ? 'i-prime-moon' : 'i-prime-sun'"
+        />
+      </ClientOnly>
     </template>
   </USlideover>
 </template>
@@ -27,7 +29,21 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from "@nuxt/ui";
 
+const colorMode = useColorMode();
 const props = defineProps<{
   items: NavigationMenuItem[];
 }>();
+const isDark = computed({
+  get() {
+    return colorMode.value === "dark";
+  },
+  set() {
+    colorMode.preference = colorMode.value === "dark" ? "light" : "dark";
+  },
+});
+
+const toggleDark = () => {
+  console.log(isDark.value);
+  return isDark.value === !isDark.value;
+};
 </script>

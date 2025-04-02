@@ -3,11 +3,7 @@
     <UContainer class="flex items-center justify-between py-4 px-7">
       <div class="flex items-center justify-start gap-x-4">
         <Sidebar :items="menuItems" />
-        <NuxtImg
-          alt="logo"
-          src="/avatar1-min.png"
-          class="size-10 rounded-full"
-        />
+        <UAvatar src="https://github.com/nuxt.png" size="3xl" />
         <span class="text-xl font-bold">سامانه افق</span>
       </div>
       <div class="flex items-center justify-start gap-x-10">
