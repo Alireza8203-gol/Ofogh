@@ -44,7 +44,7 @@
   <UModal
     size="2xl"
     title="ویرایش پست"
-    class="bg-surface-card"
+    class="max-w-[80vw] max-h-[70vw] bg-surface-card"
     v-model:open="isEditModalOpen"
   >
     <template #body>
@@ -56,7 +56,12 @@
 
   <CommentModal
     v-model:open="isCommentModalOpen"
-    :selected-post="selectedPost as Post"
+    :post-id="toRaw(selectedPost?.id) as number"
+  />
+
+  <DeleteModal
+    v-model:open="isDeleteModalOpen"
+    :post-id="toRaw(selectedPost?.id) as number"
   />
 </template>
 
@@ -75,6 +80,7 @@ const props = defineProps<{
 const table = useTemplateRef("table");
 // reactive data
 const isCommentModalOpen = ref<boolean>(false);
+const isDeleteModalOpen = ref<boolean>(false);
 const isEditModalOpen = ref<boolean>(false);
 const selectedPost = ref<Post | null>(null);
 const rowSelection = ref({});
@@ -207,6 +213,7 @@ const filteredData = computed(() => {
   );
 });
 
+// action configuration for rows
 const getRowItems = (row: Row<Post>) => {
   return [
     {
@@ -225,12 +232,17 @@ const getRowItems = (row: Row<Post>) => {
       icon: "i-prime-comment",
       onSelect() {
         isCommentModalOpen.value = true;
-        selectedPost.value = row.original; // Store the selected row data
+        selectedPost.value = row.original;
       },
     },
     {
       label: "حذف پست",
       icon: "i-prime-trash",
+      onSelect() {
+        isDeleteModalOpen.value = true;
+        selectedPost.value = row.original;
+        console.log(isDeleteModalOpen.value);
+      },
     },
   ];
 };

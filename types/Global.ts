@@ -23,3 +23,9 @@ export interface Comment {
   body: string;
   email: string;
 }
+
+export interface RowItem {
+  label: string;
+  icon: string;
+  onSelect: () => void;
+}

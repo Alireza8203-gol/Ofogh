@@ -15,7 +15,7 @@
       </UFormField>
 
       <UFormField label="بدنه متن" name="body">
-        <UTextarea class="w-full" v-model="editFormState.body" />
+        <UTextarea class="w-full" v-model="editFormState.body" :rows="7" />
       </UFormField>
 
       <UButton type="submit">تایید</UButton>

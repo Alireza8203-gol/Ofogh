@@ -1,9 +1,8 @@
 <template>
   <UModal
-    size="2xl"
-    title="نظرات"
-    class="bg-surface-card"
     :open="open"
+    title="نظرات"
+    class="max-w-[80vw] max-h-[70vw] bg-surface-card"
     @update:open="emit('update:open', $event)"
   >
     <template #body>
@@ -22,35 +21,38 @@
           </div>
         </div>
 
-        <div class="h-8" v-else></div>
+        <CommentCard v-else :comments-array="commentsData" />
       </UCard>
     </template>
   </UModal>
 </template>
 
 <script setup lang="ts">
-import type { Post } from "~/types/Global";
+import type { Comment } from "~/types/Global";
 import { getPostComments } from "~/composables/getPostComments";
 
-const commentsData = reactive({});
+const emit = defineEmits(["update:open"]);
 const isLoadingComments = ref<boolean>(true);
+const commentsData = ref<Comment[] | []>([]);
 const commentModalProps = defineProps<{
   open: boolean;
-  selectedPost: Post;
+  postId: number;
 }>();
-const emit = defineEmits(["update:open"]);
 
-onMounted(async () => {
-  if (commentModalProps.open) {
+watch(
+  () => commentModalProps.postId,
+  async (postId) => {
+    if (!postId) return; // Prevent making a request if postId is null/undefined
+
+    isLoadingComments.value = true;
     try {
-      const res = await getPostComments(
-        toRaw(commentModalProps.selectedPost.id),
-      );
-      console.log(res);
-      isLoadingComments.value = false;
+      commentsData.value = await getPostComments(postId);
     } catch (error) {
-      console.log("Error while getting post's comment: ", error);
+      console.error("Error while getting post's comments:", error);
+    } finally {
+      isLoadingComments.value = false;
     }
-  }
-});
+  },
+  { immediate: true }, // Run the watcher immediately if postId already has a value
+);
 </script>
