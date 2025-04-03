@@ -15,7 +15,7 @@
         <UButton
           label="خیر"
           color="success"
-          variant="subtle"
+          variant="outline"
           class="py-3 px-10 text-lg"
           @click="onNoClick"
         />
@@ -34,23 +34,32 @@
 <script setup lang="ts">
 import { deletePost } from "~/composables/deletePost";
 
+const toast = useToast();
 const emit = defineEmits(["update:open"]);
 const deleteModalProps = defineProps<{
   open: boolean;
   postId: number;
 }>();
 
-const onYesClick = async () => {
-  // try {
-  //   const res = await deletePost(deleteModalProps.postId as number);
-  //   console.log(res);
-  // } catch (e) {
-  //   console.error("Error while deleting the post: ", e);
-  // }
-  console.info(deleteModalProps.postId);
+const onNoClick = () => {
+  emit("update:open", false);
 };
-
-const onNoClick = async () => {
-  console.info(deleteModalProps.postId);
+const onYesClick = async () => {
+  try {
+    await deletePost(deleteModalProps.postId as number); // returns the status code if needed
+    toast.add({
+      title: "موفقیت آمیز بود",
+      color: "success",
+      description: "با موفقیت حذف شد",
+    });
+    onNoClick();
+  } catch (e) {
+    console.error("Error while deleting the post: ", e);
+    toast.add({
+      title: "موفقیت آمیز بود",
+      color: "error",
+      description: "حذف پست با مشکل روبرو شده است",
+    });
+  }
 };
 </script>

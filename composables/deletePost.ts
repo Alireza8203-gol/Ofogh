@@ -1,12 +1,12 @@
 import axios from "axios";
 
-export const deletePost = async (postId: number) => {
+export const deletePost = async (postId: number): Promise<number> => {
   try {
-    const { data } = await axios.delete(
+    const { status } = await axios.delete(
       `https://jsonplaceholder.typicode.com/posts/${postId}`,
     );
-    console.info(data);
-    return data;
+    console.info(status);
+    return status;
   } catch (error) {
     console.error("Error while deleting the post: ", error);
     throw error;
