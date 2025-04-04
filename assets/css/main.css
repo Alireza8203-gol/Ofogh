@@ -2,15 +2,14 @@
 @import "@nuxt/ui";
 
 @theme {
-  --container-padding: 24px;
   --color-surface-card: #18181b;
   --color-surface-ground: #09090b;
 }
 
-:root {
-  --ui-bg: #f5f0f9;
-}
+/*:root {*/
+/*  --ui-bg: #f5f0f9;*/
+/*}*/
 
 .dark {
-  --ui-bg: #09090b;
+  --ui-bg: oklch(14.7% 0.004 49.25);
 }

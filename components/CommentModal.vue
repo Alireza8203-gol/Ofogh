@@ -2,7 +2,7 @@
   <UModal
     :open="open"
     title="نظرات"
-    class="max-w-[80vw] max-h-[70vw] bg-surface-card"
+    class="max-w-[80vw] max-h-[70vw] bg-zinc-100 dark:bg-zinc-900"
     @update:open="emit('update:open', $event)"
   >
     <template #body>

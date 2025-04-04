@@ -2,11 +2,11 @@ import type { TableColumn } from "@nuxt/ui";
 import type { Row } from "@tanstack/vue-table";
 import type { Post, RowItem } from "~/types/Global";
 
-const getTableColumnsConfig = (
+export const getTableColumnsConfig = (
   buttonComp: Component,
   checkBoxComp: Component,
-  getRowItems: (row: Row<Post>) => RowItem[],
   dropdownMenuComp: Component,
+  getRowItems: (row: Row<Post>) => RowItem[],
 ) => {
   const columns: TableColumn<Post>[] = [
     {
@@ -106,4 +106,5 @@ const getTableColumnsConfig = (
       },
     },
   ];
+  return columns;
 };

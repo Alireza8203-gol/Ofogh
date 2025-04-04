@@ -12,6 +12,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  Filler,
 } from "chart.js";
 import { Line } from "vue-chartjs";
 import * as chartConfig from "~/config/lineChartConfig";
@@ -24,6 +25,7 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
+  Filler,
 );
 
 const data = ref(chartConfig.data);

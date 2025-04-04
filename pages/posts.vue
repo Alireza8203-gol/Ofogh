@@ -1,6 +1,8 @@
 <template>
-  <UContainer class="w-full space-y-4 mt-10 px-7 bg-surface-card">
-    <TableGrid :table-data="postsArr" :is-loading="isLoading" />
+  <UContainer class="w-full space-y-4 mt-10 px-7">
+    <UCard class="bg-zinc-100 dark:bg-zinc-900">
+      <TableGrid :table-data="postsArr" :is-loading="isLoading" />
+    </UCard>
   </UContainer>
 </template>
 

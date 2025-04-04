@@ -2,7 +2,7 @@ export default defineEventHandler(() => {
   return [
     {
       label: "صفحه اصلی",
-      icon: "i-prime-palette",
+      icon: "i-prime-home",
       to: "/",
     },
     {

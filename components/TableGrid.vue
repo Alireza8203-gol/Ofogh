@@ -44,7 +44,7 @@
   <UModal
     size="2xl"
     title="ویرایش پست"
-    class="max-w-[80vw] max-h-[70vw] bg-surface-card"
+    class="max-w-[80vw] max-h-[70vw] bg-zinc-100 dark:bg-zinc-900"
     v-model:open="isEditModalOpen"
   >
     <template #body>
@@ -122,7 +122,7 @@ const columns: TableColumn<Post>[] = [
   },
   {
     accessorKey: "id",
-    header: "آی دی پست",
+    header: "ردیف پست",
   },
   {
     accessorKey: "userId",
@@ -241,7 +241,6 @@ const getRowItems = (row: Row<Post>) => {
       onSelect() {
         isDeleteModalOpen.value = true;
         selectedPost.value = row.original;
-        console.log(isDeleteModalOpen.value);
       },
     },
   ];

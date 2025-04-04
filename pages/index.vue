@@ -1,15 +1,9 @@
 <template>
-  <h1>this is the home and main page!</h1>
+  <UContainer class="mt-10 px-7">
+    <UCard class="w-full bg-zinc-100 dark:bg-zinc-900">
+      <CarouselComp />
+    </UCard>
+  </UContainer>
 </template>
 
-<script setup lang="ts">
-import type { NavigationMenuItem } from "@nuxt/ui";
-
-const items = ref<NavigationMenuItem[]>([
-  {
-    label: "Guide",
-    icon: "i-prime-palette",
-    // to: "/getting-started",
-  },
-]);
-</script>
+<script setup lang="ts"></script>

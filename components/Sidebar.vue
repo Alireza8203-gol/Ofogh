@@ -8,7 +8,7 @@
       <UNavigationMenu
         :items="items"
         orientation="vertical"
-        class="w-full bg-surface-card"
+        class="w-full bg-zinc-100 dark:bg-zinc-900"
       >
       </UNavigationMenu>
     </template>
@@ -41,9 +41,4 @@ const isDark = computed({
     colorMode.preference = colorMode.value === "dark" ? "light" : "dark";
   },
 });
-
-const toggleDark = () => {
-  console.log(isDark.value);
-  return isDark.value === !isDark.value;
-};
 </script>

@@ -5,7 +5,7 @@ export type EditPostForm = z.output<typeof editPostSchema>;
 
 export interface Post {
   id: number;
-  userId: string;
+  userId?: string;
   title: string;
   body: string;
 }

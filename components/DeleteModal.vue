@@ -3,7 +3,7 @@
     :open="open"
     :close="false"
     title="آیا مطمئن هستید که پست حذف شود؟"
-    class="items-center py-8 bg-surface-card text-xl"
+    class="items-center py-8 bg-zinc-100 dark:bg-zinc-900 text-xl"
     @update:open="emit('update:open', $event)"
     :ui="{
       overlay: 'bg-(--ui-bg-elevated)/75',

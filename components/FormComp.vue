@@ -6,7 +6,7 @@
       :schema="editPostSchema"
       class="space-y-4 w-full"
     >
-      <UFormField label="آی دی" name="id">
+      <UFormField label="شناسه" name="id">
         <UInput v-model="editFormState.id" class="w-full" disabled />
       </UFormField>
 
@@ -26,9 +26,9 @@
 <script setup lang="ts">
 import type { Reactive } from "vue";
 import type { FormSubmitEvent } from "@nuxt/ui";
-import { submitPost } from "~/composables/submitForm";
 import { editPostSchema } from "~/schemas/editPostSchema";
 import type { EditPost, EditPostForm } from "~/types/Global";
+import { submitEditedPost } from "~/composables/submitEditedForm";
 
 const toast = useToast();
 const formCompProps = defineProps<{
@@ -37,7 +37,7 @@ const formCompProps = defineProps<{
 
 const onSubmit = async (event: FormSubmitEvent<EditPostForm>) => {
   try {
-    await submitPost(event.data as EditPost);
+    await submitEditedPost(event.data as EditPost);
     console.log("Post updated successfully!");
     toast.add({
       title: "موفقیت آمیز بود",

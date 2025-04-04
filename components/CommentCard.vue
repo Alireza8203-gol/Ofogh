@@ -4,7 +4,7 @@
       variant="subtle"
       :key="comment.id"
       v-for="comment in commentsArray"
-      class="flex flex-nowrap items-center gap-4 bg-surface-card"
+      class="flex flex-nowrap items-center gap-4 bg-zinc-100 dark:bg-zinc-900"
     >
       <div class="flex flex-col items-start justify-between gap-y-4">
         <div class="flex items-center gap-x-4">
