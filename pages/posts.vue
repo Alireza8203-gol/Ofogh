@@ -9,6 +9,9 @@
 <script setup lang="ts">
 import axios from "axios";
 import type { Post } from "~/types/Global";
+useHead({
+  title: "سامانه افق | پست ها",
+});
 
 const postsArr = ref<Post[]>([]);
 const isLoading = ref<boolean>(true);

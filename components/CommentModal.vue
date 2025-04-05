@@ -36,7 +36,7 @@ const isLoadingComments = ref<boolean>(true);
 const commentsData = ref<Comment[] | []>([]);
 const commentModalProps = defineProps<{
   open: boolean;
-  postId: number;
+  postId: number | undefined;
 }>();
 
 watch(

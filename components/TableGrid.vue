@@ -56,12 +56,12 @@
 
   <CommentModal
     v-model:open="isCommentModalOpen"
-    :post-id="toRaw(selectedPost?.id) as number"
+    :post-id="selectedPost?.id as number"
   />
 
   <DeleteModal
     v-model:open="isDeleteModalOpen"
-    :post-id="toRaw(selectedPost?.id) as number"
+    :post-id="selectedPost?.id as number"
   />
 </template>
 

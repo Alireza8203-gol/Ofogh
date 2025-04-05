@@ -8,4 +8,8 @@
   </UContainer>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+useHead({
+  title: "سامانه افق | اضافه کردن پست جدید",
+});
+</script>

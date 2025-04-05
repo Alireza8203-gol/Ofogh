@@ -3,6 +3,7 @@
     :go-back="goBack"
     :page-name="pageName"
     :go-forward="goForward"
+    :is-hydrated="isHydrated"
     :can-move-in-history="canMoveInHistory"
   />
 
@@ -10,27 +11,24 @@
     :go-back="goBack"
     :page-icon="pageIcon"
     :go-forward="goForward"
+    :is-hydrated="isHydrated"
     :can-move-in-history="canMoveInHistory"
   />
 </template>
 
 <script setup lang="ts">
-import { process } from "std-env";
-
 const route = useRoute();
 const router = useRouter();
+const isHydrated = ref<boolean>(false);
 const pageName = ref<string>("");
 const pageIcon = ref<string>("");
 const canMoveInHistory = ref<boolean>(false);
 
-if (process.client) {
-  canMoveInHistory.value = window.history.length > 1;
-}
 const goBack = () => {
   window.history.length > 1 && router.back();
 };
 const goForward = () => {
-  window.history.forward(); // Moves forward in the history stack
+  window.history.forward();
 };
 
 watch(
@@ -59,7 +57,6 @@ watch(
   },
   { immediate: true }, // 🔥 runs once on the first load too
 );
-
 watch(
   () => route.fullPath,
   () => {
@@ -69,4 +66,8 @@ watch(
   },
   { immediate: true },
 );
+onMounted(() => {
+  isHydrated.value = true;
+  canMoveInHistory.value = window.history.length > 1;
+});
 </script>

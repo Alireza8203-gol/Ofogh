@@ -1,8 +1,16 @@
 export const data = {
-  labels: ["فروردین", "اردیبشهت", "خرداد", "تیر", "مرداد", "شهریور", "مهر"],
+  labels: [
+    "شنبه",
+    "یکشنبه",
+    "دوشنبه",
+    "سه‌شنبه",
+    "چهارشنبه",
+    "پنجشنبه",
+    "جمعه",
+  ],
   datasets: [
     {
-      label: "فروش",
+      label: "اینستاگرام",
       borderColor: "green",
       backgroundColor: "green",
       pointBackgroundColor: "#f87979",
@@ -10,7 +18,7 @@ export const data = {
     },
     {
       fill: false,
-      label: "سود",
+      label: "سایت",
       borderDash: [5, 5],
       borderColor: "purple",
       backgroundColor: "purple",
@@ -23,4 +31,17 @@ export const data = {
 export const options = {
   responsive: true,
   maintainAspectRatio: false,
+  plugins: {
+    title: {
+      display: true,
+      text: "آمار بازدید بر اساس روز های هفته",
+      font: {
+        size: 18,
+      },
+      padding: {
+        top: 10,
+        bottom: 10,
+      },
+    },
+  },
 };

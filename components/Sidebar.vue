@@ -1,5 +1,12 @@
 <template>
-  <USlideover :overlay="false" :close="false">
+  <USlideover
+    :overlay="false"
+    :close="{
+      color: 'primary',
+      variant: 'subtle',
+      class: 'rounded-full',
+    }"
+  >
     <UButton
       icon="i-prime-bars"
       class="flex items-center justify-center size-10 rounded-full cursor-pointer"

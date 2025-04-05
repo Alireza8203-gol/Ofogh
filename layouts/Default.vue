@@ -4,13 +4,15 @@
       <div class="flex items-center justify-start gap-x-4">
         <Sidebar :items="menuItems" />
         <UAvatar src="https://github.com/nuxt.png" size="3xl" />
-        <span class="text-xl font-bold">سامانه افق</span>
+        <span class="text-center lg:text-xl font-bold">سامانه افق</span>
       </div>
 
       <PageNavControl />
     </UContainer>
   </header>
-  <NuxtPage />
+  <main>
+    <NuxtPage />
+  </main>
 </template>
 
 <script setup lang="ts">

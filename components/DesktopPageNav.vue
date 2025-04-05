@@ -8,10 +8,11 @@
       @click="goForward"
       class="cursor-pointer"
       icon="i-prime-angle-right"
-      :disabled="!canMoveInHistory"
+      :disabled="!isHydrated || !canMoveInHistory"
     />
+    <!--      :disabled="!canMoveInHistory"-->
 
-    <p>{{ pageName }}</p>
+    <p class="font-bold">{{ pageName }}</p>
 
     <UButton
       size="lg"
@@ -20,7 +21,7 @@
       variant="outline"
       @click="goBack"
       icon="i-prime-angle-left"
-      :disabled="!canMoveInHistory"
+      :disabled="!isHydrated || !canMoveInHistory"
       class="flex-row-reverse cursor-pointer"
     />
   </div>
@@ -29,8 +30,14 @@
 <script setup lang="ts">
 const props = defineProps<{
   pageName: string;
-  canMoveInHistory: boolean;
   goBack: () => void;
+  isHydrated: boolean;
   goForward: () => void;
+  canMoveInHistory: boolean;
 }>();
+
+onMounted(() => {
+  console.log(props.goBack);
+  console.log(props.canMoveInHistory);
+});
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <Pie :data="data" :options="options" />
+  <Pie :data="data" :options="options" class="h-100" />
 </template>
 
 <script setup lang="ts">

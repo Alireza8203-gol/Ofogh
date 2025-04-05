@@ -38,7 +38,7 @@ const toast = useToast();
 const emit = defineEmits(["update:open"]);
 const deleteModalProps = defineProps<{
   open: boolean;
-  postId: number;
+  postId: number | undefined;
 }>();
 
 const onNoClick = () => {

@@ -1,5 +1,5 @@
 export const data = {
-  labels: ["VueJs", "EmberJs", "ReactJs", "AngularJs"],
+  labels: ["ایران", "عراق", "کره جنوبی", "مالدیو"],
   datasets: [
     {
       data: [40, 20, 80, 10],
@@ -11,4 +11,17 @@ export const data = {
 export const options = {
   responsive: true,
   maintainAspectRatio: false,
+  plugins: {
+    title: {
+      display: true,
+      text: "آمار بازدید بر اساس کشور ها",
+      font: {
+        size: 18,
+      },
+      padding: {
+        top: 10,
+        bottom: 10,
+      },
+    },
+  },
 };
